@@ -72,7 +72,7 @@ def handle_complete():
 
         try:
             print(f"Submitting task {int(index.strip())} for completion")
-            pool.apply_async(complete_task, args=(int(index.strip()) - 1,), callback=task_completed_callback)
+            pool.apply_async(complete_task, args=(idx,), callback=task_completed_callback)
         except Exception as e:
             print(f"An error occurred while submitting task {int(index.strip())} for completion: {e}")
 
