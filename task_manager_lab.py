@@ -31,13 +31,6 @@ def add_task(description):
     else:
         print("Invalid task description. Only alphanumeric characters and spaces are allowed.")
 
-# Function to mark a task as completed
-def complete_task(index):
-    # Simulate a long-running task
-    time.sleep(3)
-
-    return index
-
 # Function to handle adding multiple tasks from the GUI
 def handle_add():
     descriptions = task_entry.get().split(',')
@@ -52,6 +45,13 @@ def task_completed_callback(index):
     tasks[index].mark_completed()
     print(f"Task {index + 1} completed")
     update_task_list()
+
+# Function to mark a task as completed
+def complete_task(index):
+    # Simulate a long-running task
+    time.sleep(3)
+
+    return index
 
 # Function to handle completing task(s) from the GUI
 def handle_complete():
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     task_entry = tk.Entry(root, width=50)
     task_entry.pack(pady=10)
 
-    # Add multiple task(s) button
+    # Add task(s) button
     add_button = tk.Button(root, text="Add Task(s) (comma-separated)", command=handle_add)
     add_button.pack(pady=5)
 
@@ -115,11 +115,11 @@ if __name__ == '__main__':
     task_list = tk.Listbox(root, width=50)
     task_list.pack(pady=10)
 
-    # Complete tasks entry field
+    # Complete task(s) entry field
     complete_entry = tk.Entry(root, width=50)
     complete_entry.pack(pady=10)
 
-    # Complete multiple tasks button
+    # Complete task(s) button
     complete_button = tk.Button(root, text="Complete Task(s) (comma-separated)", command=handle_complete)
     complete_button.pack(pady=5)
 
